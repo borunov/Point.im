@@ -16,6 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        
+//        var systemProperty = SystemProperties()
+//        systemProperty.sysDefaults["login"] = "bobo"
+//        systemProperty.sysDefaults["password"] = "bobopass"
+//        systemProperty.saveDefaults()
+        
+        
+        
+        let pointim = PointSuite.instance
+        pointim.doLoginProcedure()
+        pointim.loadPostsInLineBefore(0)
+        
+        
+        
+        
+        
+        
+        
+        
         return true
     }
 

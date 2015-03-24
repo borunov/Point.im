@@ -36,13 +36,14 @@ class SystemProperties: NSObject {
         } else {
             // читаем из локальных настроек
             for k in keysSysDefaults {
-                if let s = NSUserDefaults.standardUserDefaults().stringForKey(k)? {
+                if let s = NSUserDefaults.standardUserDefaults().stringForKey(k) {
                     sysDefaults[k] = s
                     
                 } else {
-                    sysDefaults[k] = ""
+//                    sysDefaults[k] = "" пусть остается неопределенным
                     // по идее раз что-то не считалось, надо установить какие-то значения по умочанию
                     // НАДО ЭТО СДЕЛАТЬ
+                    // нет. это обрабатывается в PointSuite.doLoginProcedure()
                 }
                 println("\"" + k + "\": \"" + sysDefaults[k]! + "\"")
             }
@@ -65,6 +66,10 @@ class SystemProperties: NSObject {
             }
         }
         
+    }
+    
+    deinit {
+        saveDefaults()
     }
     
     
