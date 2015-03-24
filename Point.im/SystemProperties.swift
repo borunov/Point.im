@@ -11,12 +11,10 @@ import Foundation
 
 class SystemProperties: NSObject {
     
-    class var sharedReader:SystemProperties {
-        
+    class var instance:SystemProperties {
         struct Static{
             static let _instance = SystemProperties()
         }
-        
         return Static._instance
     }
     
